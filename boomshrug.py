@@ -20,7 +20,11 @@ class BoomShrug(Resource):
         channel = args.channel_name
         token = args.token
 
-        boomshrug = u'¯\_💥_/¯' # aw, YEAH! (•_•) / ( •_•)>⌐■-■ / (⌐■_■)
+        # ¯\_💥_/¯ ¯\_💥_/¯ ¯\_💥_/¯
+        # ============================
+        boomshrug = u'¯\_💥_/¯' # aw, YEAH! (•_•) / ( •_•)>⌐■-■ / (⌐■_■) ¯\_💥_/¯
+        # ============================
+        # ¯\_💥_/¯ ¯\_💥_/¯ ¯\_💥_/¯
 
         # On GCE, we're using files mounted at /secret for incoming webhook URL and team token
         # Or you can hard-code values in the except blocks below.
