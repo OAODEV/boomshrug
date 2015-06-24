@@ -1,0 +1,4 @@
+Flask==0.10.1
+Flask-RESTful==0.3.3
+CherryPy==3.7.0
+Paste==2.0.2
