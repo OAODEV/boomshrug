@@ -41,7 +41,7 @@ class BoomShrug(Resource):
 
         #Only accept posts from our team
         if token != valid:
-            return (valid, 200)
+            return ('naughty, naughty!', 403)
         else: # Send the boomshrug!!
             if channel != 'directmessage':
                 channel = u'#%s' % channel
