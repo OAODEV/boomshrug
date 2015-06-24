@@ -17,7 +17,7 @@ class BoomShrug(Resource):
         boomshrug = u'¯\_:boom:_/¯'
         payload = {'text': boomshrug}
         really = None
-        url = 'https://hooks.slack.com/services/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'
+        url = 'https://hooks.slack.com/services/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' # <- fake ;)
         r = requests.post(url, data=json.dumps(payload))
         return ('', 204)
 api.add_resource(BoomShrug, '/')
