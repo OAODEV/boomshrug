@@ -34,18 +34,18 @@ class BoomShrug(Resource):
         except:
             url = "https://hooks.slack.com/services/Qm09HXTQ6W/Qm09HXTQ6W/Qm09HXTQ6WQm09HXTQ6W" # <- fake ;)
         try:
-            with open('secret/token', 'r') as tokenf:
-                valid = tokenf.read().strip
+            with open('/secret/token', 'r') as tokenf:
+                valid = tokenf.read().strip()
         except:
             valid = "Qm09HXTQ6WUPPuMo6pBQhVh4" # phony
 
         #Only accept posts from our team
         if token != valid:
-            return ('forbidden!', 403)
+            return (valid, 200)
         else: # Send the boomshrug!!
             if channel != 'directmessage':
                 channel = u'#%s' % channel
-                payload = {'text': boomshrug} #, 'channel': channel}
+                payload = {'text': boomshrug, 'channel': channel}
                 r = requests.post(url, data=json.dumps(payload))
                 return ('', 204)
             else: # I don't know how to make this work for directmessages :/
