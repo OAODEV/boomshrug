@@ -16,13 +16,19 @@ class BoomShrug(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('channel_name', type=unicode)
         parser.add_argument('token', type=unicode)
+        parser.add_argument('text', type=unicode)
         args = parser.parse_args()
         channel = args.channel_name
         token = args.token
+        if args.text:
+            thisshrug = args.text
+        else:
+            thisshrug = u'💥'
+
 
         # ¯\_💥_/¯ ¯\_💥_/¯ ¯\_💥_/¯
         # ============================
-        boomshrug = u'¯\_💥_/¯' # aw, YEAH! (•_•) / ( •_•)>⌐■-■ / (⌐■_■) ¯\_💥_/¯
+        boomshrug = u'¯\_%s_/¯' % thisshrug # aw, YEAH! (•_•) / ( •_•)>⌐■-■ / (⌐■_■) ¯\_💥_/¯
         # ============================
         # ¯\_💥_/¯ ¯\_💥_/¯ ¯\_💥_/¯
 
