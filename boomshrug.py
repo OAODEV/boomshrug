@@ -22,6 +22,11 @@ class BoomShrug(Resource):
         token = args.token
         if args.text:
             thisshrug = args.text
+            if ':' in args.text:
+                at = args.text.replace(':','').title()
+                user = '%sshrug!' % at
+            else:
+                user = 'Boomshrug!'
         else:
             thisshrug = u'💥'
 
@@ -51,7 +56,7 @@ class BoomShrug(Resource):
         else: # Send the boomshrug!!
             if channel != 'directmessage':
                 channel = u'#%s' % channel
-                payload = {'text': boomshrug, 'channel': channel}
+                payload = {'text': boomshrug, 'channel': channel, 'username': user}
                 r = requests.post(url, data=json.dumps(payload))
                 return ('', 204)
             else: # I don't know how to make this work for directmessages :/
