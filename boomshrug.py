@@ -50,11 +50,12 @@ def boomshrug(**kwargs):
     # ============================
     # ¯\_💥_/¯ ¯\_💥_/¯ ¯\_💥_/¯
 
-    payload = {'text': boomshrug, 'username': usern, 'channel': channel}
+    payload = {'text': boomshrug, 'username': username, 'channel': channel}
     r = requests.post(url, data=json.dumps(payload))
     return slack.response('')
 
-
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
 
 
