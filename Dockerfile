@@ -17,4 +17,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python", "boomshrug.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "boomshrug:app", "--log-file=-"]
