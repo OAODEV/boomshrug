@@ -11,7 +11,7 @@ machine:
 
     herd_build_tag: $(cat $CIRCLE_PROJECT_REPONAME/Version)_build.$(echo $CIRCLE_SHA1 | cut -c1-7)
 
-ependencies:
+dependencies:
   override:
     - echo "The build name is in here!!!" us.gcr.io/lexical-cider-93918/$herd_service_name:$herd_build_tag
     - docker build -t us.gcr.io/lexical-cider-93918/$herd_service_name:$herd_build_tag .
