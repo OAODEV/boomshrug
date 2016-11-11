@@ -12,7 +12,8 @@ COPY boomshrug.py /boomshrug/boomshrug.py
 RUN chmod +x /boomshrug/boomshrug.py
 COPY requirements.txt /boomshrug/
 
-RUN pip install -r requirements.txt
+RUN pip3 install --upgrade pip\
+-r requirements.txt
 
 EXPOSE 5000
 
