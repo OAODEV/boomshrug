@@ -1,10 +1,9 @@
-FROM ubuntu:14.04
+FROM alpine:3.4
 MAINTAINER tym@adops.com
 
-RUN apt-get update && apt-get install -y \
-    python \
-    python-dev \
-    python-pip
+RUN RUN apk update && \
+apk add --update python3 \
+python3-dev
 
 RUN mkdir /boomshrug
 WORKDIR /boomshrug
