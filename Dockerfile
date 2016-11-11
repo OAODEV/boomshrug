@@ -15,6 +15,8 @@ COPY requirements.txt /boomshrug/
 RUN pip3 install --upgrade pip \
 -r requirements.txt
 
+RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
+
 EXPOSE 5000
 
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "boomshrug:app", "--log-file=-"]

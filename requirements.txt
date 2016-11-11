@@ -1,3 +1,4 @@
 Flask==0.10.1
 Flask-Slack==0.1.2
 gunicorn==19.3.0
+requests==2.11.1
