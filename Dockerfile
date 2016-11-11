@@ -1,7 +1,7 @@
 FROM alpine:3.4
 MAINTAINER tym@adops.com
 
-RUN RUN apk update && \
+RUN apk update && \
 apk add --update python3 \
 python3-dev
 
