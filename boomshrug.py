@@ -1,35 +1,25 @@
 #!/usr/bin/env/ python3
 # coding: utf-8
+import json
+import os
+
+import requests
 
 from flask import Flask
 from flask_slack import Slack
-import requests
-import json
 
 app = Flask(__name__)
 slack = Slack(app)
 app.add_url_rule('/', view_func=slack.dispatch)
 
-# On GCE, we have files mounted at /secret for
-# incoming webhook URL and team token
-# Or you can hard-code values in the except blocks below.
-try:
-    with open('/secret/hookurl', 'r') as hookf:
-        url = hookf.read().strip()
-except:
-    url = ("https://hooks.slack.com/services/"
-           "T02594HP0/B081REU01/PjOvu5UAGNgVKUTydc3GqS6L")  # <- fake ;)
-try:
-    with open('/secret/token', 'r') as tokenf:
-        valid = tokenf.read().strip()
-except:
-    valid = "bZKQqL4qkCOORlwzJRAPAvNc"  # phony
-try:
-    with open('/secret/teamid', 'r') as teamf:
-        team = teamf.read().strip()
-except:
-    team = "T02594HP0"  # phony
-
+# Currently, we mount our secrets as environment variables across
+# our services, therefore variables can either be hardcoded here
+# or defined in the environment
+# PS: all of these are phony hardcodes ;)
+url = os.getenv('HOOKURL', "https://hooks.slack.com/services/"
+                           "T02594HP0/B081REU01/PjOvu5UAGNgVKUTydc3GqS6L")
+valid = os.getenv('TOKEN', 'bZKQqL4qkCOORlwzJRAPAvNc')
+team = os.getenv('TEAM_ID', 'T02594HP0')
 
 @slack.command('boomshrug', token=valid,
                team_id=team, methods=['POST'])
