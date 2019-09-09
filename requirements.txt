@@ -1,4 +1,4 @@
-Flask==0.10.1
+flask>=1.0.0
 Flask-Slack==0.1.2
 gunicorn==19.5.0
-requests==2.11.1
+requests>=2.20.0
